@@ -1,0 +1,1366 @@
+20:C 19 Nov 2020 09:29:00.256 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+20:C 19 Nov 2020 09:29:00.256 # Redis version=5.0.8, bits=64, commit=00000000, modified=0, pid=20, just started
+20:C 19 Nov 2020 09:29:00.256 # Configuration loaded
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 5.0.8 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 20
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+20:M 19 Nov 2020 09:29:00.257 # WARNING: The TCP backlog setting of 512 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+20:M 19 Nov 2020 09:29:00.257 # Server initialized
+20:M 19 Nov 2020 09:29:00.257 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+20:M 19 Nov 2020 09:29:00.257 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+20:M 19 Nov 2020 09:29:00.257 * Ready to accept connections
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+2020-11-19 09:29:02,373 sagemaker-containers INFO     Imported framework sagemaker_tensorflow_container.training
+2020-11-19 09:29:02,622 sagemaker-containers INFO     Invoking user script
+
+Training Env:
+
+{
+    "additional_framework_parameters": {
+        "sagemaker_estimator": "RLEstimator"
+    },
+    "channel_input_dirs": {},
+    "current_host": "algo-1-alt8r",
+    "framework_module": "sagemaker_tensorflow_container.training:main",
+    "hosts": [
+        "algo-1-alt8r"
+    ],
+    "hyperparameters": {
+        "s3_bucket": "bucket",
+        "s3_prefix": "current",
+        "aws_region": "us-east-1",
+        "model_metadata_s3_key": "s3://bucket/custom_files/model_metadata.json",
+        "RLCOACH_PRESET": "deepracer",
+        "batch_size": 512,
+        "beta_entropy": 0.01,
+        "discount_factor": 0.9998,
+        "e_greedy_value": 0.05,
+        "epsilon_steps": 10000,
+        "exploration_type": "categorical",
+        "loss_type": "huber",
+        "lr": 2e-05,
+        "num_episodes_between_training": 50,
+        "num_epochs": 10,
+        "stack_size": 1,
+        "term_cond_avg_score": 100000.0,
+        "term_cond_max_episodes": 1000000,
+        "pretrained_s3_bucket": "bucket",
+        "pretrained_s3_prefix": "rl-deepracer-pretrained"
+    },
+    "input_config_dir": "/opt/ml/input/config",
+    "input_data_config": {},
+    "input_dir": "/opt/ml/input",
+    "is_master": true,
+    "job_name": "current",
+    "log_level": 20,
+    "master_hostname": "algo-1-alt8r",
+    "model_dir": "/opt/ml/model",
+    "module_dir": "s3://bucket/current/source/sourcedir.tar.gz",
+    "module_name": "training_worker",
+    "network_interface_name": "eth0",
+    "num_cpus": 16,
+    "num_gpus": 3,
+    "output_data_dir": "/opt/ml/output/data",
+    "output_dir": "/opt/ml/output",
+    "output_intermediate_dir": "/opt/ml/output/intermediate",
+    "resource_config": {
+        "current_host": "algo-1-alt8r",
+        "hosts": [
+            "algo-1-alt8r"
+        ]
+    },
+    "user_entry_point": "training_worker.py"
+}
+
+Environment variables:
+
+SM_HOSTS=["algo-1-alt8r"]
+SM_NETWORK_INTERFACE_NAME=eth0
+SM_HPS={"RLCOACH_PRESET":"deepracer","aws_region":"us-east-1","batch_size":512,"beta_entropy":0.01,"discount_factor":0.9998,"e_greedy_value":0.05,"epsilon_steps":10000,"exploration_type":"categorical","loss_type":"huber","lr":2e-05,"model_metadata_s3_key":"s3://bucket/custom_files/model_metadata.json","num_episodes_between_training":50,"num_epochs":10,"pretrained_s3_bucket":"bucket","pretrained_s3_prefix":"rl-deepracer-pretrained","s3_bucket":"bucket","s3_prefix":"current","stack_size":1,"term_cond_avg_score":100000.0,"term_cond_max_episodes":1000000}
+SM_USER_ENTRY_POINT=training_worker.py
+SM_FRAMEWORK_PARAMS={"sagemaker_estimator":"RLEstimator"}
+SM_RESOURCE_CONFIG={"current_host":"algo-1-alt8r","hosts":["algo-1-alt8r"]}
+SM_INPUT_DATA_CONFIG={}
+SM_OUTPUT_DATA_DIR=/opt/ml/output/data
+SM_CHANNELS=[]
+SM_CURRENT_HOST=algo-1-alt8r
+SM_MODULE_NAME=training_worker
+SM_LOG_LEVEL=20
+SM_FRAMEWORK_MODULE=sagemaker_tensorflow_container.training:main
+SM_INPUT_DIR=/opt/ml/input
+SM_INPUT_CONFIG_DIR=/opt/ml/input/config
+SM_OUTPUT_DIR=/opt/ml/output
+SM_NUM_CPUS=16
+SM_NUM_GPUS=3
+SM_MODEL_DIR=/opt/ml/model
+SM_MODULE_DIR=s3://bucket/current/source/sourcedir.tar.gz
+SM_TRAINING_ENV={"additional_framework_parameters":{"sagemaker_estimator":"RLEstimator"},"channel_input_dirs":{},"current_host":"algo-1-alt8r","framework_module":"sagemaker_tensorflow_container.training:main","hosts":["algo-1-alt8r"],"hyperparameters":{"RLCOACH_PRESET":"deepracer","aws_region":"us-east-1","batch_size":512,"beta_entropy":0.01,"discount_factor":0.9998,"e_greedy_value":0.05,"epsilon_steps":10000,"exploration_type":"categorical","loss_type":"huber","lr":2e-05,"model_metadata_s3_key":"s3://bucket/custom_files/model_metadata.json","num_episodes_between_training":50,"num_epochs":10,"pretrained_s3_bucket":"bucket","pretrained_s3_prefix":"rl-deepracer-pretrained","s3_bucket":"bucket","s3_prefix":"current","stack_size":1,"term_cond_avg_score":100000.0,"term_cond_max_episodes":1000000},"input_config_dir":"/opt/ml/input/config","input_data_config":{},"input_dir":"/opt/ml/input","is_master":true,"job_name":"current","log_level":20,"master_hostname":"algo-1-alt8r","model_dir":"/opt/ml/model","module_dir":"s3://bucket/current/source/sourcedir.tar.gz","module_name":"training_worker","network_interface_name":"eth0","num_cpus":16,"num_gpus":3,"output_data_dir":"/opt/ml/output/data","output_dir":"/opt/ml/output","output_intermediate_dir":"/opt/ml/output/intermediate","resource_config":{"current_host":"algo-1-alt8r","hosts":["algo-1-alt8r"]},"user_entry_point":"training_worker.py"}
+SM_USER_ARGS=["--RLCOACH_PRESET","deepracer","--aws_region","us-east-1","--batch_size","512","--beta_entropy","0.01","--discount_factor","0.9998","--e_greedy_value","0.05","--epsilon_steps","10000","--exploration_type","categorical","--loss_type","huber","--lr","2e-05","--model_metadata_s3_key","s3://bucket/custom_files/model_metadata.json","--num_episodes_between_training","50","--num_epochs","10","--pretrained_s3_bucket","bucket","--pretrained_s3_prefix","rl-deepracer-pretrained","--s3_bucket","bucket","--s3_prefix","current","--stack_size","1","--term_cond_avg_score","100000.0","--term_cond_max_episodes","1000000"]
+SM_OUTPUT_INTERMEDIATE_DIR=/opt/ml/output/intermediate
+SM_HP_S3_BUCKET=bucket
+SM_HP_S3_PREFIX=current
+SM_HP_AWS_REGION=us-east-1
+SM_HP_MODEL_METADATA_S3_KEY=s3://bucket/custom_files/model_metadata.json
+SM_HP_RLCOACH_PRESET=deepracer
+SM_HP_BATCH_SIZE=512
+SM_HP_BETA_ENTROPY=0.01
+SM_HP_DISCOUNT_FACTOR=0.9998
+SM_HP_E_GREEDY_VALUE=0.05
+SM_HP_EPSILON_STEPS=10000
+SM_HP_EXPLORATION_TYPE=categorical
+SM_HP_LOSS_TYPE=huber
+SM_HP_LR=2e-05
+SM_HP_NUM_EPISODES_BETWEEN_TRAINING=50
+SM_HP_NUM_EPOCHS=10
+SM_HP_STACK_SIZE=1
+SM_HP_TERM_COND_AVG_SCORE=100000.0
+SM_HP_TERM_COND_MAX_EPISODES=1000000
+SM_HP_PRETRAINED_S3_BUCKET=bucket
+SM_HP_PRETRAINED_S3_PREFIX=rl-deepracer-pretrained
+PYTHONPATH=/usr/local/bin:/opt/amazon:/opt/ml/code:/usr/lib/python36.zip:/usr/lib/python3.6:/usr/lib/python3.6/lib-dynload:/usr/local/lib/python3.6/dist-packages:/usr/lib/python3/dist-packages
+
+Invoking script with the following command:
+
+/usr/bin/python training_worker.py --RLCOACH_PRESET deepracer --aws_region us-east-1 --batch_size 512 --beta_entropy 0.01 --discount_factor 0.9998 --e_greedy_value 0.05 --epsilon_steps 10000 --exploration_type categorical --loss_type huber --lr 2e-05 --model_metadata_s3_key s3://bucket/custom_files/model_metadata.json --num_episodes_between_training 50 --num_epochs 10 --pretrained_s3_bucket bucket --pretrained_s3_prefix rl-deepracer-pretrained --s3_bucket bucket --s3_prefix current --stack_size 1 --term_cond_avg_score 100000.0 --term_cond_max_episodes 1000000
+
+
+S3 bucket: bucket 
+ S3 prefix: current 
+ S3 endpoint URL: http://minio:9000
+Initializing SageS3Client...
+Successfully downloaded model metadata from custom_files/model_metadata.json.
+Sensor list ['STEREO_CAMERAS', 'SECTOR_LIDAR'], network DEEP_CONVOLUTIONAL_NETWORK_SHALLOW, simapp_version 2.0
+Loaded action space from file: [{'steering_angle': -30.0, 'speed': 1.5, 'index': 0}, {'steering_angle': -12.2628, 'speed': 1.9275, 'index': 1}, {'steering_angle': -7.2014, 'speed': 2.8864, 'index': 2}, {'steering_angle': 0.1849, 'speed': 3.5329, 'index': 3}, {'steering_angle': 0.7924, 'speed': 4.3744, 'index': 4}, {'steering_angle': 1.2367, 'speed': 1.7886, 'index': 5}, {'steering_angle': 5.823, 'speed': 2.3177, 'index': 6}, {'steering_angle': 7.2025, 'speed': 2.8877, 'index': 7}, {'steering_angle': 15.2226, 'speed': 1.787, 'index': 8}, {'steering_angle': 30.0, 'speed': 1.5, 'index': 9}]
+Using the following hyper-parameters
+{
+  "batch_size": 512,
+  "beta_entropy": 0.01,
+  "discount_factor": 0.9998,
+  "e_greedy_value": 0.05,
+  "epsilon_steps": 10000,
+  "exploration_type": "categorical",
+  "loss_type": "huber",
+  "lr": 2e-05,
+  "num_episodes_between_training": 50,
+  "num_epochs": 10,
+  "stack_size": 1,
+  "term_cond_avg_score": 100000.0,
+  "term_cond_max_episodes": 1000000
+}
+Uploaded hyperparameters.json to S3
+Uploaded IP address information to S3: 172.18.0.5
+Sensor list ['STEREO_CAMERAS', 'SECTOR_LIDAR'], network DEEP_CONVOLUTIONAL_NETWORK_SHALLOW, simapp_version 2.0
+Unable to find best model data, using last model
+## Creating graph - name: MultiAgentGraphManager
+## Start physics before creating graph
+## Create graph
+## Creating agent - name: agent
+## Created agent: agent
+## Stop physics after creating graph
+## Creating session
+Checkpoint> Restoring from path=./pretrained_checkpoint/321_Step-250430.ckpt
+Checkpoint> Saving in path=['./checkpoint/322_Step-0.ckpt']
+Uploaded 3 files for checkpoint 322 in 0.42 seconds
+saved intermediate frozen graph: current/model/model_322.pb
+Unable to find best model data, using last model
+Unable to find the best checkpoint number. Getting the last checkpoint number
+Unable to find best model data, using last model
+Unable to find the last checkpoint number.
+Unable to find best model data, using last model
+Unable to find the last checkpoint number.
+Best checkpoint number: -1, Last checkpoint number: -1
+Copying the frozen checkpoint from ./frozen_models/agent/model_322.pb to /opt/ml/model/agent/model.pb.
+Uploaded 3 files for checkpoint 322 in 0.56 seconds
+saved intermediate frozen graph: current/model/model_322.pb
+Unable to find best model data, using last model
+Unable to find the best checkpoint number. Getting the last checkpoint number
+Unable to find best model data, using last model
+Unable to find the last checkpoint number.
+Unable to find best model data, using last model
+Unable to find the last checkpoint number.
+Best checkpoint number: -1, Last checkpoint number: -1
+Copying the frozen checkpoint from ./frozen_models/agent/model_322.pb to /opt/ml/model/agent/model.pb.
+DoorMan: installing SIGINT, SIGTERM
+Training> Name=main_level/agent, Worker=0, Episode=1, Total reward=70.95, Steps=41, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=2, Total reward=63.6, Steps=120, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=3, Total reward=0.02, Steps=138, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=4, Total reward=107.12, Steps=234, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=5, Total reward=216.55, Steps=372, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=6, Total reward=71.18, Steps=417, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=7, Total reward=146.06, Steps=494, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=8, Total reward=136.31, Steps=610, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=9, Total reward=39.88, Steps=652, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=10, Total reward=46.67, Steps=726, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=11, Total reward=146.62, Steps=823, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=12, Total reward=12.0, Steps=845, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=13, Total reward=42.94, Steps=876, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=14, Total reward=25.35, Steps=887, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=15, Total reward=201.38, Steps=1046, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=16, Total reward=29.2, Steps=1078, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=17, Total reward=49.02, Steps=1117, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=18, Total reward=93.2, Steps=1191, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=19, Total reward=76.04, Steps=1262, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=20, Total reward=105.74, Steps=1345, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=21, Total reward=46.95, Steps=1375, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=22, Total reward=44.54, Steps=1433, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=23, Total reward=22.29, Steps=1485, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=24, Total reward=0.02, Steps=1502, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=25, Total reward=13.34, Steps=1538, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=26, Total reward=233.96, Steps=1734, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=27, Total reward=185.07, Steps=1842, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=28, Total reward=130.2, Steps=1938, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=29, Total reward=129.11, Steps=2028, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=30, Total reward=112.6, Steps=2097, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=31, Total reward=62.48, Steps=2144, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=32, Total reward=217.54, Steps=2327, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=33, Total reward=50.4, Steps=2369, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=34, Total reward=77.03, Steps=2420, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=35, Total reward=19.93, Steps=2434, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=36, Total reward=20.35, Steps=2469, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=37, Total reward=114.4, Steps=2569, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=38, Total reward=127.18, Steps=2646, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=39, Total reward=96.3, Steps=2708, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=40, Total reward=67.83, Steps=2749, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=41, Total reward=41.44, Steps=2803, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=42, Total reward=207.98, Steps=3004, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=43, Total reward=0.04, Steps=3039, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=44, Total reward=207.99, Steps=3173, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=45, Total reward=81.54, Steps=3260, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=46, Total reward=135.2, Steps=3378, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=47, Total reward=164.74, Steps=3500, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=48, Total reward=76.11, Steps=3542, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=49, Total reward=31.06, Steps=3565, Training iteration=0
+Training> Name=main_level/agent, Worker=0, Episode=50, Total reward=73.06, Steps=3622, Training iteration=0
+Policy training> Surrogate loss=-0.00404644338414073, KL divergence=0.00032161868875846267, Entropy=0.24396570026874542, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.022699085995554924, KL divergence=0.003990291617810726, Entropy=0.2426401525735855, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.029514212161302567, KL divergence=0.007822982035577297, Entropy=0.24122725427150726, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.038197968155145645, KL divergence=0.011086455546319485, Entropy=0.2392491102218628, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.038926780223846436, KL divergence=0.014522525481879711, Entropy=0.23923209309577942, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04262920841574669, KL divergence=0.017149802297353745, Entropy=0.2374880611896515, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04515201225876808, KL divergence=0.019723188132047653, Entropy=0.2381855547428131, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04405692219734192, KL divergence=0.0220650602132082, Entropy=0.2385725975036621, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04387122020125389, KL divergence=0.02398115210235119, Entropy=0.23811295628547668, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04707106202840805, KL divergence=0.025319812819361687, Entropy=0.237258642911911, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/323_Step-3622.ckpt']
+Uploaded 3 files for checkpoint 323 in 0.55 seconds
+saved intermediate frozen graph: current/model/model_323.pb
+Best checkpoint number: 322, Last checkpoint number: 322
+Copying the frozen checkpoint from ./frozen_models/agent/model_322.pb to /opt/ml/model/agent/model.pb.
+Training> Name=main_level/agent, Worker=0, Episode=51, Total reward=31.32, Steps=3662, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=52, Total reward=92.03, Steps=3719, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=53, Total reward=55.86, Steps=3758, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=54, Total reward=64.99, Steps=3803, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=55, Total reward=125.69, Steps=3925, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=56, Total reward=110.54, Steps=4005, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=57, Total reward=52.55, Steps=4059, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=58, Total reward=70.57, Steps=4107, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=59, Total reward=65.67, Steps=4193, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=60, Total reward=52.38, Steps=4226, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=61, Total reward=82.57, Steps=4277, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=62, Total reward=90.42, Steps=4372, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=63, Total reward=3.64, Steps=4394, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=64, Total reward=79.49, Steps=4482, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=65, Total reward=123.49, Steps=4619, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=66, Total reward=219.45, Steps=4755, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=67, Total reward=61.03, Steps=4815, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=68, Total reward=93.28, Steps=4855, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=69, Total reward=157.12, Steps=4955, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=70, Total reward=3.84, Steps=4969, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=71, Total reward=56.63, Steps=5049, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=72, Total reward=142.31, Steps=5142, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=73, Total reward=75.67, Steps=5188, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=74, Total reward=60.64, Steps=5256, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=75, Total reward=61.81, Steps=5298, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=76, Total reward=34.48, Steps=5332, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=77, Total reward=53.73, Steps=5386, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=78, Total reward=124.03, Steps=5496, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=79, Total reward=95.89, Steps=5566, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=80, Total reward=67.39, Steps=5633, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=81, Total reward=76.7, Steps=5672, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=82, Total reward=34.19, Steps=5715, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=83, Total reward=3.07, Steps=5739, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=84, Total reward=59.92, Steps=5849, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=85, Total reward=40.47, Steps=5897, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=86, Total reward=171.93, Steps=6042, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=87, Total reward=6.72, Steps=6054, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=88, Total reward=79.64, Steps=6094, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=89, Total reward=81.66, Steps=6153, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=90, Total reward=89.31, Steps=6225, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=91, Total reward=145.56, Steps=6362, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=92, Total reward=86.46, Steps=6415, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=93, Total reward=76.96, Steps=6468, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=94, Total reward=178.43, Steps=6559, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=95, Total reward=131.89, Steps=6689, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=96, Total reward=29.9, Steps=6709, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=97, Total reward=41.21, Steps=6745, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=98, Total reward=53.07, Steps=6778, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=99, Total reward=105.66, Steps=6874, Training iteration=1
+Training> Name=main_level/agent, Worker=0, Episode=100, Total reward=64.62, Steps=6928, Training iteration=1
+Policy training> Surrogate loss=-0.0018561072647571564, KL divergence=0.00012002605944871902, Entropy=0.2273823469877243, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.02090962789952755, KL divergence=0.0031988502014428377, Entropy=0.22358834743499756, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.034469809383153915, KL divergence=0.008957438170909882, Entropy=0.21985077857971191, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.042068034410476685, KL divergence=0.014641026966273785, Entropy=0.21734221279621124, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04764239490032196, KL divergence=0.02141539193689823, Entropy=0.22098524868488312, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04835514351725578, KL divergence=0.02602839656174183, Entropy=0.22049939632415771, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03644084557890892, KL divergence=0.029693253338336945, Entropy=0.22000543773174286, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.053125713020563126, KL divergence=0.03264675661921501, Entropy=0.21997813880443573, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.052688825875520706, KL divergence=0.03444059193134308, Entropy=0.21949177980422974, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04866725206375122, KL divergence=0.03767555579543114, Entropy=0.22315680980682373, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/324_Step-6928.ckpt']
+Uploaded 3 files for checkpoint 324 in 0.49 seconds
+saved intermediate frozen graph: current/model/model_324.pb
+Best checkpoint number: 322, Last checkpoint number: 322
+Copying the frozen checkpoint from ./frozen_models/agent/model_322.pb to /opt/ml/model/agent/model.pb.
+Training> Name=main_level/agent, Worker=0, Episode=101, Total reward=69.04, Steps=6987, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=102, Total reward=50.07, Steps=7018, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=103, Total reward=0.02, Steps=7041, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=104, Total reward=206.12, Steps=7186, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=105, Total reward=27.74, Steps=7211, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=106, Total reward=70.95, Steps=7273, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=107, Total reward=166.12, Steps=7392, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=108, Total reward=84.65, Steps=7442, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=109, Total reward=25.6, Steps=7462, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=110, Total reward=70.33, Steps=7545, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=111, Total reward=200.18, Steps=7676, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=112, Total reward=142.09, Steps=7790, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=113, Total reward=56.57, Steps=7832, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=114, Total reward=67.44, Steps=7874, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=115, Total reward=59.16, Steps=7923, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=116, Total reward=155.14, Steps=8076, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=117, Total reward=39.84, Steps=8107, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=118, Total reward=106.45, Steps=8174, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=119, Total reward=91.07, Steps=8233, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=120, Total reward=179.57, Steps=8397, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=121, Total reward=64.06, Steps=8439, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=122, Total reward=38.94, Steps=8476, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=123, Total reward=6.34, Steps=8502, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=124, Total reward=15.55, Steps=8531, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=125, Total reward=212.06, Steps=8712, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=126, Total reward=91.26, Steps=8779, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=127, Total reward=191.98, Steps=8888, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=128, Total reward=124.68, Steps=8969, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=129, Total reward=59.68, Steps=9039, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=130, Total reward=122.62, Steps=9129, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=131, Total reward=97.36, Steps=9189, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=132, Total reward=112.86, Steps=9287, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=133, Total reward=45.12, Steps=9328, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=134, Total reward=79.56, Steps=9391, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=135, Total reward=61.9, Steps=9436, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=136, Total reward=67.73, Steps=9495, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=137, Total reward=125.34, Steps=9596, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=138, Total reward=110.41, Steps=9688, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=139, Total reward=69.32, Steps=9753, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=140, Total reward=88.5, Steps=9817, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=141, Total reward=74.42, Steps=9871, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=142, Total reward=53.58, Steps=9942, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=143, Total reward=50.05, Steps=10021, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=144, Total reward=2.03, Steps=10053, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=145, Total reward=167.5, Steps=10204, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=146, Total reward=7.57, Steps=10221, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=147, Total reward=189.57, Steps=10344, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=148, Total reward=90.16, Steps=10380, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=149, Total reward=28.18, Steps=10425, Training iteration=2
+Training> Name=main_level/agent, Worker=0, Episode=150, Total reward=44.67, Steps=10485, Training iteration=2
+Policy training> Surrogate loss=-0.0035254936665296555, KL divergence=0.00015379204705823213, Entropy=0.23908621072769165, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.024468829855322838, KL divergence=0.004357592668384314, Entropy=0.2369079440832138, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.02893313206732273, KL divergence=0.011074916459619999, Entropy=0.22826045751571655, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04709719493985176, KL divergence=0.017875567078590393, Entropy=0.23149530589580536, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03209458291530609, KL divergence=0.023202046751976013, Entropy=0.23132272064685822, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04034368321299553, KL divergence=0.026220770552754402, Entropy=0.22981779277324677, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05471344664692879, KL divergence=0.03071560524404049, Entropy=0.22900176048278809, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04816007986664772, KL divergence=0.03234679996967316, Entropy=0.2234199196100235, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.044739872217178345, KL divergence=0.03418945521116257, Entropy=0.22580517828464508, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.0442422591149807, KL divergence=0.036406416445970535, Entropy=0.22477130591869354, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/325_Step-10485.ckpt']
+Uploaded 3 files for checkpoint 325 in 0.63 seconds
+saved intermediate frozen graph: current/model/model_325.pb
+Best checkpoint number: 323, Last checkpoint number: 323
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'322'}
+Training> Name=main_level/agent, Worker=0, Episode=151, Total reward=21.43, Steps=10509, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=152, Total reward=122.08, Steps=10628, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=153, Total reward=24.0, Steps=10640, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=154, Total reward=90.09, Steps=10743, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=155, Total reward=195.25, Steps=10860, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=156, Total reward=24.38, Steps=10895, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=157, Total reward=72.79, Steps=10942, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=158, Total reward=63.55, Steps=10988, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=159, Total reward=162.54, Steps=11139, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=160, Total reward=74.45, Steps=11205, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=161, Total reward=66.01, Steps=11260, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=162, Total reward=52.99, Steps=11341, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=163, Total reward=15.61, Steps=11388, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=164, Total reward=32.21, Steps=11421, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=165, Total reward=115.53, Steps=11542, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=166, Total reward=192.06, Steps=11672, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=167, Total reward=107.73, Steps=11780, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=168, Total reward=135.53, Steps=11870, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=169, Total reward=35.27, Steps=11908, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=170, Total reward=207.57, Steps=12034, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=171, Total reward=100.12, Steps=12099, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=172, Total reward=20.69, Steps=12111, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=173, Total reward=90.89, Steps=12171, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=174, Total reward=147.42, Steps=12273, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=175, Total reward=59.65, Steps=12318, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=176, Total reward=82.17, Steps=12430, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=177, Total reward=109.82, Steps=12535, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=178, Total reward=80.56, Steps=12589, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=179, Total reward=61.86, Steps=12664, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=180, Total reward=97.56, Steps=12728, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=181, Total reward=102.91, Steps=12883, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=182, Total reward=52.92, Steps=12953, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=183, Total reward=0.03, Steps=12978, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=184, Total reward=14.89, Steps=13008, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=185, Total reward=10.11, Steps=13045, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=186, Total reward=60.44, Steps=13091, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=187, Total reward=58.43, Steps=13158, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=188, Total reward=184.07, Steps=13259, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=189, Total reward=136.84, Steps=13348, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=190, Total reward=190.98, Steps=13460, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=191, Total reward=128.2, Steps=13522, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=192, Total reward=224.61, Steps=13642, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=193, Total reward=91.26, Steps=13700, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=194, Total reward=70.66, Steps=13761, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=195, Total reward=108.02, Steps=13862, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=196, Total reward=28.97, Steps=13881, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=197, Total reward=268.98, Steps=14103, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=198, Total reward=172.35, Steps=14297, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=199, Total reward=53.37, Steps=14346, Training iteration=3
+Training> Name=main_level/agent, Worker=0, Episode=200, Total reward=56.4, Steps=14417, Training iteration=3
+Policy training> Surrogate loss=0.0015973363770172, KL divergence=0.00017072854097932577, Entropy=0.2392396777868271, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.01711977645754814, KL divergence=0.005400157067924738, Entropy=0.23468157649040222, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.0304645337164402, KL divergence=0.012517628259956837, Entropy=0.23544637858867645, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.039970360696315765, KL divergence=0.01865330897271633, Entropy=0.23253385722637177, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.032106854021549225, KL divergence=0.02387760393321514, Entropy=0.23094812035560608, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03906860947608948, KL divergence=0.028222115710377693, Entropy=0.23051901161670685, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04707133769989014, KL divergence=0.031041163951158524, Entropy=0.23375992476940155, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04393729194998741, KL divergence=0.03308972716331482, Entropy=0.23411867022514343, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05013018473982811, KL divergence=0.035077694803476334, Entropy=0.2312019318342209, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.0469660721719265, KL divergence=0.03715605288743973, Entropy=0.23330339789390564, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/326_Step-14417.ckpt']
+Uploaded 3 files for checkpoint 326 in 0.57 seconds
+saved intermediate frozen graph: current/model/model_326.pb
+Best checkpoint number: 323, Last checkpoint number: 324
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'322'}
+Training> Name=main_level/agent, Worker=0, Episode=201, Total reward=56.57, Steps=14465, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=202, Total reward=37.63, Steps=14491, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=203, Total reward=8.94, Steps=14530, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=204, Total reward=1.74, Steps=14547, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=205, Total reward=145.81, Steps=14655, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=206, Total reward=191.87, Steps=14778, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=207, Total reward=86.26, Steps=14831, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=208, Total reward=234.14, Steps=14968, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=209, Total reward=52.55, Steps=15039, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=210, Total reward=115.11, Steps=15094, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=211, Total reward=49.88, Steps=15126, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=212, Total reward=124.61, Steps=15204, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=213, Total reward=23.99, Steps=15215, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=214, Total reward=116.09, Steps=15325, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=215, Total reward=209.04, Steps=15445, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=216, Total reward=37.29, Steps=15482, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=217, Total reward=23.08, Steps=15499, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=218, Total reward=109.82, Steps=15599, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=219, Total reward=97.59, Steps=15673, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=220, Total reward=77.6, Steps=15756, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=221, Total reward=79.94, Steps=15796, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=222, Total reward=43.44, Steps=15825, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=223, Total reward=10.89, Steps=15882, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=224, Total reward=33.07, Steps=15913, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=225, Total reward=217.36, Steps=16083, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=226, Total reward=64.04, Steps=16128, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=227, Total reward=200.72, Steps=16277, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=228, Total reward=72.41, Steps=16312, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=229, Total reward=33.04, Steps=16331, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=230, Total reward=44.37, Steps=16388, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=231, Total reward=60.66, Steps=16435, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=232, Total reward=63.46, Steps=16474, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=233, Total reward=24.61, Steps=16498, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=234, Total reward=188.9, Steps=16665, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=235, Total reward=62.84, Steps=16699, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=236, Total reward=23.42, Steps=16730, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=237, Total reward=169.4, Steps=16840, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=238, Total reward=119.67, Steps=16939, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=239, Total reward=194.31, Steps=17099, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=240, Total reward=80.28, Steps=17201, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=241, Total reward=67.59, Steps=17255, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=242, Total reward=31.53, Steps=17287, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=243, Total reward=7.35, Steps=17306, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=244, Total reward=21.52, Steps=17339, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=245, Total reward=119.61, Steps=17429, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=246, Total reward=250.66, Steps=17597, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=247, Total reward=97.21, Steps=17680, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=248, Total reward=203.36, Steps=17786, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=249, Total reward=28.39, Steps=17847, Training iteration=4
+Training> Name=main_level/agent, Worker=0, Episode=250, Total reward=75.83, Steps=17901, Training iteration=4
+Policy training> Surrogate loss=0.001513063907623291, KL divergence=0.00016739033162593842, Entropy=0.23097379505634308, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.01609993167221546, KL divergence=0.0035998933017253876, Entropy=0.23033727705478668, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.0385625995695591, KL divergence=0.011546946130692959, Entropy=0.22486864030361176, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.024331459775567055, KL divergence=0.01690579019486904, Entropy=0.22132958471775055, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.028201887384057045, KL divergence=0.022220781072974205, Entropy=0.22204774618148804, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.042091887444257736, KL divergence=0.02670149691402912, Entropy=0.21953247487545013, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03326781839132309, KL divergence=0.03003242425620556, Entropy=0.22157208621501923, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04652857780456543, KL divergence=0.03363872691988945, Entropy=0.22115840017795563, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.041632793843746185, KL divergence=0.034546054899692535, Entropy=0.2235565185546875, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.048006463795900345, KL divergence=0.03819340839982033, Entropy=0.22455327212810516, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/327_Step-17901.ckpt']
+Uploaded 3 files for checkpoint 327 in 0.55 seconds
+saved intermediate frozen graph: current/model/model_327.pb
+Best checkpoint number: 323, Last checkpoint number: 325
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'324'}
+Training> Name=main_level/agent, Worker=0, Episode=251, Total reward=101.93, Steps=17997, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=252, Total reward=84.57, Steps=18052, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=253, Total reward=47.45, Steps=18089, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=254, Total reward=66.26, Steps=18141, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=255, Total reward=49.01, Steps=18189, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=256, Total reward=58.29, Steps=18270, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=257, Total reward=120.18, Steps=18366, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=258, Total reward=271.92, Steps=18578, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=259, Total reward=59.05, Steps=18628, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=260, Total reward=64.62, Steps=18668, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=261, Total reward=73.04, Steps=18711, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=262, Total reward=44.18, Steps=18754, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=263, Total reward=2.99, Steps=18779, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=264, Total reward=118.97, Steps=18875, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=265, Total reward=54.05, Steps=18944, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=266, Total reward=119.99, Steps=19002, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=267, Total reward=116.99, Steps=19076, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=268, Total reward=77.08, Steps=19114, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=269, Total reward=109.14, Steps=19189, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=270, Total reward=83.08, Steps=19280, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=271, Total reward=30.84, Steps=19313, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=272, Total reward=60.62, Steps=19370, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=273, Total reward=0.01, Steps=19384, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=274, Total reward=57.19, Steps=19427, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=275, Total reward=99.86, Steps=19511, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=276, Total reward=67.49, Steps=19568, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=277, Total reward=175.87, Steps=19670, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=278, Total reward=38.51, Steps=19707, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=279, Total reward=113.15, Steps=19800, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=280, Total reward=89.79, Steps=19860, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=281, Total reward=95.8, Steps=19940, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=282, Total reward=37.42, Steps=19979, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=283, Total reward=13.88, Steps=20031, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=284, Total reward=3.48, Steps=20048, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=285, Total reward=7.37, Steps=20089, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=286, Total reward=177.72, Steps=20214, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=287, Total reward=147.79, Steps=20337, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=288, Total reward=62.87, Steps=20379, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=289, Total reward=53.32, Steps=20430, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=290, Total reward=115.41, Steps=20514, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=291, Total reward=37.37, Steps=20562, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=292, Total reward=79.84, Steps=20615, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=293, Total reward=95.6, Steps=20710, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=294, Total reward=33.02, Steps=20722, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=295, Total reward=3.97, Steps=20736, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=296, Total reward=31.11, Steps=20782, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=297, Total reward=160.61, Steps=20873, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=298, Total reward=58.23, Steps=20910, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=299, Total reward=93.61, Steps=21021, Training iteration=5
+Training> Name=main_level/agent, Worker=0, Episode=300, Total reward=7.82, Steps=21049, Training iteration=5
+Policy training> Surrogate loss=0.0015751123428344727, KL divergence=0.0001433061552233994, Entropy=0.2389082908630371, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.021458251401782036, KL divergence=0.004208437167108059, Entropy=0.23653042316436768, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.029868638142943382, KL divergence=0.01185318548232317, Entropy=0.23443950712680817, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03669258952140808, KL divergence=0.020666087046265602, Entropy=0.23263265192508698, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04303721711039543, KL divergence=0.027216123417019844, Entropy=0.23031283915042877, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04082191362977028, KL divergence=0.03272104635834694, Entropy=0.23315811157226562, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.046450529247522354, KL divergence=0.036515384912490845, Entropy=0.23055194318294525, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.050741422921419144, KL divergence=0.03957345709204674, Entropy=0.2325935810804367, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04591800644993782, KL divergence=0.042321085929870605, Entropy=0.23293615877628326, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05010640621185303, KL divergence=0.04416947066783905, Entropy=0.23200684785842896, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/328_Step-21049.ckpt']
+Uploaded 3 files for checkpoint 328 in 0.50 seconds
+saved intermediate frozen graph: current/model/model_328.pb
+Best checkpoint number: 323, Last checkpoint number: 326
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'325'}
+Training> Name=main_level/agent, Worker=0, Episode=301, Total reward=80.74, Steps=21088, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=302, Total reward=55.23, Steps=21173, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=303, Total reward=3.59, Steps=21193, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=304, Total reward=36.13, Steps=21226, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=305, Total reward=22.39, Steps=21276, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=306, Total reward=245.98, Steps=21439, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=307, Total reward=79.11, Steps=21492, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=308, Total reward=207.13, Steps=21607, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=309, Total reward=44.68, Steps=21653, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=310, Total reward=16.28, Steps=21712, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=311, Total reward=75.88, Steps=21776, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=312, Total reward=16.97, Steps=21788, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=313, Total reward=71.64, Steps=21826, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=314, Total reward=82.69, Steps=21888, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=315, Total reward=169.78, Steps=22008, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=316, Total reward=34.83, Steps=22042, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=317, Total reward=84.88, Steps=22086, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=318, Total reward=98.83, Steps=22153, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=319, Total reward=47.15, Steps=22211, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=320, Total reward=75.5, Steps=22276, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=321, Total reward=69.74, Steps=22323, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=322, Total reward=35.3, Steps=22355, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=323, Total reward=29.85, Steps=22392, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=324, Total reward=181.71, Steps=22533, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=325, Total reward=215.55, Steps=22698, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=326, Total reward=0.01, Steps=22710, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=327, Total reward=99.31, Steps=22821, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=328, Total reward=172.29, Steps=22934, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=329, Total reward=71.54, Steps=23007, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=330, Total reward=108.4, Steps=23083, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=331, Total reward=188.77, Steps=23259, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=332, Total reward=204.96, Steps=23380, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=333, Total reward=48.18, Steps=23414, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=334, Total reward=60.14, Steps=23453, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=335, Total reward=102.89, Steps=23542, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=336, Total reward=33.44, Steps=23576, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=337, Total reward=46.12, Steps=23615, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=338, Total reward=294.97, Steps=23834, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=339, Total reward=85.3, Steps=23895, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=340, Total reward=180.77, Steps=24043, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=341, Total reward=71.28, Steps=24087, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=342, Total reward=37.75, Steps=24116, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=343, Total reward=17.21, Steps=24171, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=344, Total reward=209.54, Steps=24332, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=345, Total reward=107.85, Steps=24433, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=346, Total reward=158.36, Steps=24535, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=347, Total reward=90.04, Steps=24586, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=348, Total reward=71.38, Steps=24647, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=349, Total reward=95.96, Steps=24700, Training iteration=6
+Training> Name=main_level/agent, Worker=0, Episode=350, Total reward=100.7, Steps=24778, Training iteration=6
+Policy training> Surrogate loss=0.00023491626780014485, KL divergence=0.00016618492372799665, Entropy=0.23497779667377472, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.02316366694867611, KL divergence=0.004715544171631336, Entropy=0.23484556376934052, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.027979092672467232, KL divergence=0.012365730479359627, Entropy=0.23235273361206055, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03706943243741989, KL divergence=0.019231004640460014, Entropy=0.23129631578922272, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.038599926978349686, KL divergence=0.02529994770884514, Entropy=0.23139843344688416, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04256158694624901, KL divergence=0.02899761125445366, Entropy=0.22764520347118378, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04081306234002113, KL divergence=0.03262978047132492, Entropy=0.23161248862743378, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03819597139954567, KL divergence=0.03519659861922264, Entropy=0.23236121237277985, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04040096327662468, KL divergence=0.038078423589468, Entropy=0.2339354008436203, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04460930451750755, KL divergence=0.03909897804260254, Entropy=0.23164771497249603, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/329_Step-24778.ckpt']
+Uploaded 3 files for checkpoint 329 in 0.58 seconds
+saved intermediate frozen graph: current/model/model_329.pb
+Best checkpoint number: 323, Last checkpoint number: 327
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'326'}
+Training> Name=main_level/agent, Worker=0, Episode=351, Total reward=109.0, Steps=24849, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=352, Total reward=38.65, Steps=24909, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=353, Total reward=63.03, Steps=24999, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=354, Total reward=133.07, Steps=25120, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=355, Total reward=103.86, Steps=25199, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=356, Total reward=30.23, Steps=25232, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=357, Total reward=103.07, Steps=25326, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=358, Total reward=108.44, Steps=25429, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=359, Total reward=89.81, Steps=25497, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=360, Total reward=77.1, Steps=25543, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=361, Total reward=84.63, Steps=25596, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=362, Total reward=64.2, Steps=25654, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=363, Total reward=18.69, Steps=25700, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=364, Total reward=12.53, Steps=25757, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=365, Total reward=5.11, Steps=25789, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=366, Total reward=169.8, Steps=25926, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=367, Total reward=113.49, Steps=26033, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=368, Total reward=73.14, Steps=26071, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=369, Total reward=121.92, Steps=26164, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=370, Total reward=50.52, Steps=26225, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=371, Total reward=112.16, Steps=26296, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=372, Total reward=15.04, Steps=26316, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=373, Total reward=68.83, Steps=26355, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=374, Total reward=73.69, Steps=26420, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=375, Total reward=99.6, Steps=26490, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=376, Total reward=35.58, Steps=26524, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=377, Total reward=135.95, Steps=26630, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=378, Total reward=73.95, Steps=26669, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=379, Total reward=18.3, Steps=26706, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=380, Total reward=61.85, Steps=26777, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=381, Total reward=57.62, Steps=26822, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=382, Total reward=122.14, Steps=26948, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=383, Total reward=0.03, Steps=26974, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=384, Total reward=103.0, Steps=27071, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=385, Total reward=115.18, Steps=27146, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=386, Total reward=230.17, Steps=27285, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=387, Total reward=90.61, Steps=27354, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=388, Total reward=58.75, Steps=27384, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=389, Total reward=135.14, Steps=27531, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=390, Total reward=102.61, Steps=27601, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=391, Total reward=57.76, Steps=27650, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=392, Total reward=53.89, Steps=27695, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=393, Total reward=62.18, Steps=27735, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=394, Total reward=37.1, Steps=27764, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=395, Total reward=75.36, Steps=27812, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=396, Total reward=43.05, Steps=27861, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=397, Total reward=69.4, Steps=27914, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=398, Total reward=61.13, Steps=27951, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=399, Total reward=77.66, Steps=28013, Training iteration=7
+Training> Name=main_level/agent, Worker=0, Episode=400, Total reward=61.19, Steps=28073, Training iteration=7
+Policy training> Surrogate loss=0.005028555169701576, KL divergence=0.00027740938821807504, Entropy=0.2442227154970169, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.02458779513835907, KL divergence=0.0055558085441589355, Entropy=0.24020327627658844, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03189956769347191, KL divergence=0.012915288098156452, Entropy=0.23617951571941376, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03687973693013191, KL divergence=0.02111772634088993, Entropy=0.23150634765625, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03167135640978813, KL divergence=0.027468709275126457, Entropy=0.23143185675144196, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04053545743227005, KL divergence=0.03215226158499718, Entropy=0.23261861503124237, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04238923266530037, KL divergence=0.03437338396906853, Entropy=0.22888340055942535, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03286684677004814, KL divergence=0.03713776543736458, Entropy=0.22704769670963287, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.047132235020399094, KL divergence=0.04062717407941818, Entropy=0.23047153651714325, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04148830845952034, KL divergence=0.043900858610868454, Entropy=0.23425497114658356, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/330_Step-28073.ckpt']
+Uploaded 3 files for checkpoint 330 in 0.59 seconds
+saved intermediate frozen graph: current/model/model_330.pb
+Best checkpoint number: 323, Last checkpoint number: 328
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'327'}
+Training> Name=main_level/agent, Worker=0, Episode=401, Total reward=262.92, Steps=28326, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=402, Total reward=43.96, Steps=28367, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=403, Total reward=82.37, Steps=28481, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=404, Total reward=188.77, Steps=28631, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=405, Total reward=96.14, Steps=28712, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=406, Total reward=150.49, Steps=28831, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=407, Total reward=102.6, Steps=28892, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=408, Total reward=76.51, Steps=28944, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=409, Total reward=138.48, Steps=29063, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=410, Total reward=110.2, Steps=29138, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=411, Total reward=111.45, Steps=29225, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=412, Total reward=131.85, Steps=29298, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=413, Total reward=117.45, Steps=29372, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=414, Total reward=156.88, Steps=29481, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=415, Total reward=54.87, Steps=29531, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=416, Total reward=74.8, Steps=29604, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=417, Total reward=208.67, Steps=29795, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=418, Total reward=23.37, Steps=29810, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=419, Total reward=73.81, Steps=29884, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=420, Total reward=137.67, Steps=30030, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=421, Total reward=74.09, Steps=30102, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=422, Total reward=44.95, Steps=30143, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=423, Total reward=5.03, Steps=30200, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=424, Total reward=3.91, Steps=30225, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=425, Total reward=221.81, Steps=30369, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=426, Total reward=220.39, Steps=30493, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=427, Total reward=164.64, Steps=30590, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=428, Total reward=203.34, Steps=30698, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=429, Total reward=24.32, Steps=30731, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=430, Total reward=123.89, Steps=30803, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=431, Total reward=143.68, Steps=30904, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=432, Total reward=83.21, Steps=30961, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=433, Total reward=54.8, Steps=31002, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=434, Total reward=79.54, Steps=31085, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=435, Total reward=68.09, Steps=31125, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=436, Total reward=21.69, Steps=31159, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=437, Total reward=27.68, Steps=31199, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=438, Total reward=62.61, Steps=31234, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=439, Total reward=107.07, Steps=31342, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=440, Total reward=98.22, Steps=31398, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=441, Total reward=47.16, Steps=31450, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=442, Total reward=35.61, Steps=31490, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=443, Total reward=14.75, Steps=31554, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=444, Total reward=19.5, Steps=31588, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=445, Total reward=113.46, Steps=31727, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=446, Total reward=207.1, Steps=31899, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=447, Total reward=76.2, Steps=31978, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=448, Total reward=0.0, Steps=31979, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=449, Total reward=36.86, Steps=32012, Training iteration=8
+Training> Name=main_level/agent, Worker=0, Episode=450, Total reward=157.21, Steps=32130, Training iteration=8
+Policy training> Surrogate loss=0.0034976399037986994, KL divergence=0.00020097913511563092, Entropy=0.23242250084877014, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.020657982677221298, KL divergence=0.0068396613933146, Entropy=0.2285778820514679, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.02394159324467182, KL divergence=0.01449714694172144, Entropy=0.22827932238578796, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03351213410496712, KL divergence=0.02115021087229252, Entropy=0.2271876335144043, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.027765078470110893, KL divergence=0.025774771347641945, Entropy=0.2257450371980667, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04344279691576958, KL divergence=0.029485775157809258, Entropy=0.22614558041095734, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04035664722323418, KL divergence=0.033092912286520004, Entropy=0.2287626564502716, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04464493319392204, KL divergence=0.03541497513651848, Entropy=0.23007187247276306, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04655684903264046, KL divergence=0.03697559982538223, Entropy=0.23002111911773682, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05119442939758301, KL divergence=0.04006331413984299, Entropy=0.23080195486545563, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/331_Step-32130.ckpt']
+Uploaded 3 files for checkpoint 331 in 0.53 seconds
+saved intermediate frozen graph: current/model/model_331.pb
+Best checkpoint number: 323, Last checkpoint number: 329
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'328'}
+Training> Name=main_level/agent, Worker=0, Episode=451, Total reward=44.62, Steps=32186, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=452, Total reward=16.28, Steps=32198, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=453, Total reward=75.66, Steps=32304, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=454, Total reward=72.21, Steps=32386, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=455, Total reward=188.34, Steps=32528, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=456, Total reward=170.6, Steps=32658, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=457, Total reward=132.94, Steps=32762, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=458, Total reward=24.92, Steps=32781, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=459, Total reward=50.35, Steps=32830, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=460, Total reward=54.21, Steps=32895, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=461, Total reward=126.99, Steps=33050, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=462, Total reward=48.76, Steps=33104, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=463, Total reward=33.28, Steps=33146, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=464, Total reward=4.47, Steps=33170, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=465, Total reward=105.65, Steps=33259, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=466, Total reward=110.27, Steps=33324, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=467, Total reward=176.85, Steps=33448, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=468, Total reward=66.04, Steps=33494, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=469, Total reward=44.7, Steps=33546, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=470, Total reward=144.65, Steps=33624, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=471, Total reward=43.32, Steps=33673, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=472, Total reward=237.9, Steps=33856, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=473, Total reward=64.03, Steps=33895, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=474, Total reward=66.91, Steps=33945, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=475, Total reward=49.61, Steps=33991, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=476, Total reward=143.74, Steps=34101, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=477, Total reward=164.52, Steps=34223, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=478, Total reward=66.68, Steps=34262, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=479, Total reward=332.58, Steps=34562, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=480, Total reward=14.9, Steps=34586, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=481, Total reward=42.61, Steps=34630, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=482, Total reward=41.83, Steps=34659, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=483, Total reward=0.03, Steps=34685, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=484, Total reward=198.44, Steps=34850, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=485, Total reward=137.81, Steps=34979, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=486, Total reward=159.26, Steps=35090, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=487, Total reward=82.23, Steps=35158, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=488, Total reward=47.56, Steps=35198, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=489, Total reward=74.91, Steps=35268, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=490, Total reward=68.9, Steps=35330, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=491, Total reward=106.31, Steps=35388, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=492, Total reward=13.92, Steps=35411, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=493, Total reward=121.22, Steps=35496, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=494, Total reward=85.01, Steps=35575, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=495, Total reward=38.44, Steps=35593, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=496, Total reward=36.29, Steps=35622, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=497, Total reward=413.17, Steps=35876, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=498, Total reward=73.51, Steps=35925, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=499, Total reward=26.78, Steps=35960, Training iteration=9
+Training> Name=main_level/agent, Worker=0, Episode=500, Total reward=99.0, Steps=36059, Training iteration=9
+Policy training> Surrogate loss=0.005385321564972401, KL divergence=0.0002124533784808591, Entropy=0.24681904911994934, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.025874925777316093, KL divergence=0.006589647848159075, Entropy=0.2423839271068573, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03880441188812256, KL divergence=0.01666841097176075, Entropy=0.23906925320625305, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.045501887798309326, KL divergence=0.024285536259412766, Entropy=0.23593772947788239, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.033345818519592285, KL divergence=0.02998313680291176, Entropy=0.23917794227600098, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03935207799077034, KL divergence=0.03229827806353569, Entropy=0.23746837675571442, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.046920083463191986, KL divergence=0.03556792438030243, Entropy=0.237107053399086, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.046868059784173965, KL divergence=0.03878504037857056, Entropy=0.23966659605503082, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04460426792502403, KL divergence=0.04114286229014397, Entropy=0.23824939131736755, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04789632931351662, KL divergence=0.04250887408852577, Entropy=0.2402433156967163, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/332_Step-36059.ckpt']
+Uploaded 3 files for checkpoint 332 in 0.59 seconds
+saved intermediate frozen graph: current/model/model_332.pb
+Best checkpoint number: 323, Last checkpoint number: 330
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'329'}
+Training> Name=main_level/agent, Worker=0, Episode=501, Total reward=218.2, Steps=36230, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=502, Total reward=35.13, Steps=36258, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=503, Total reward=0.02, Steps=36281, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=504, Total reward=0.0, Steps=36282, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=505, Total reward=201.45, Steps=36442, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=506, Total reward=144.7, Steps=36557, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=507, Total reward=148.97, Steps=36656, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=508, Total reward=89.12, Steps=36703, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=509, Total reward=113.18, Steps=36781, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=510, Total reward=114.18, Steps=36850, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=511, Total reward=7.76, Steps=36865, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=512, Total reward=12.77, Steps=36887, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=513, Total reward=23.85, Steps=36898, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=514, Total reward=93.5, Steps=36947, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=515, Total reward=22.62, Steps=36981, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=516, Total reward=161.89, Steps=37119, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=517, Total reward=84.42, Steps=37168, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=518, Total reward=70.37, Steps=37205, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=519, Total reward=65.67, Steps=37270, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=520, Total reward=86.83, Steps=37371, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=521, Total reward=70.41, Steps=37413, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=522, Total reward=138.91, Steps=37534, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=523, Total reward=3.32, Steps=37556, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=524, Total reward=182.85, Steps=37719, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=525, Total reward=146.37, Steps=37835, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=526, Total reward=233.58, Steps=37965, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=527, Total reward=155.45, Steps=38097, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=528, Total reward=210.75, Steps=38199, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=529, Total reward=113.34, Steps=38292, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=530, Total reward=94.7, Steps=38365, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=531, Total reward=44.96, Steps=38413, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=532, Total reward=232.06, Steps=38560, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=533, Total reward=37.34, Steps=38606, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=534, Total reward=57.15, Steps=38675, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=535, Total reward=83.59, Steps=38737, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=536, Total reward=151.82, Steps=38858, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=537, Total reward=142.16, Steps=39000, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=538, Total reward=112.67, Steps=39094, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=539, Total reward=52.42, Steps=39151, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=540, Total reward=46.83, Steps=39188, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=541, Total reward=163.75, Steps=39334, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=542, Total reward=159.95, Steps=39468, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=543, Total reward=6.53, Steps=39502, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=544, Total reward=121.85, Steps=39624, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=545, Total reward=0.02, Steps=39643, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=546, Total reward=100.51, Steps=39705, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=547, Total reward=92.63, Steps=39763, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=548, Total reward=317.01, Steps=39984, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=549, Total reward=208.63, Steps=40112, Training iteration=10
+Training> Name=main_level/agent, Worker=0, Episode=550, Total reward=125.63, Steps=40188, Training iteration=10
+Policy training> Surrogate loss=1.2168660759925842e-05, KL divergence=0.0004927936242893338, Entropy=0.2525091767311096, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.024332258850336075, KL divergence=0.008041096851229668, Entropy=0.24971818923950195, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03328816592693329, KL divergence=0.017383728176355362, Entropy=0.24458786845207214, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04034861922264099, KL divergence=0.024483542889356613, Entropy=0.24316594004631042, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04208444431424141, KL divergence=0.029466936364769936, Entropy=0.24358150362968445, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04562469199299812, KL divergence=0.033094070851802826, Entropy=0.24338991940021515, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04712076857686043, KL divergence=0.03600311651825905, Entropy=0.24444177746772766, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.051532551646232605, KL divergence=0.03791438415646553, Entropy=0.24429620802402496, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.048353150486946106, KL divergence=0.040197718888521194, Entropy=0.24525977671146393, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05014604702591896, KL divergence=0.04195280373096466, Entropy=0.2459651231765747, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/333_Step-40188.ckpt']
+Uploaded 3 files for checkpoint 333 in 0.49 seconds
+saved intermediate frozen graph: current/model/model_333.pb
+Best checkpoint number: 323, Last checkpoint number: 331
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'330'}
+Training> Name=main_level/agent, Worker=0, Episode=551, Total reward=98.12, Steps=40251, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=552, Total reward=157.72, Steps=40370, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=553, Total reward=50.54, Steps=40407, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=554, Total reward=204.87, Steps=40546, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=555, Total reward=73.72, Steps=40608, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=556, Total reward=27.54, Steps=40636, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=557, Total reward=244.64, Steps=40792, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=558, Total reward=362.81, Steps=41068, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=559, Total reward=82.98, Steps=41129, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=560, Total reward=75.39, Steps=41194, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=561, Total reward=103.33, Steps=41293, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=562, Total reward=37.81, Steps=41321, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=563, Total reward=403.11, Steps=41612, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=564, Total reward=23.3, Steps=41649, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=565, Total reward=73.95, Steps=41787, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=566, Total reward=152.79, Steps=41899, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=567, Total reward=73.94, Steps=41946, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=568, Total reward=130.33, Steps=42029, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=569, Total reward=116.67, Steps=42114, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=570, Total reward=7.75, Steps=42126, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=571, Total reward=49.13, Steps=42165, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=572, Total reward=96.82, Steps=42220, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=573, Total reward=53.93, Steps=42255, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=574, Total reward=84.15, Steps=42318, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=575, Total reward=37.2, Steps=42335, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=576, Total reward=30.76, Steps=42361, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=577, Total reward=21.79, Steps=42383, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=578, Total reward=143.1, Steps=42491, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=579, Total reward=269.15, Steps=42729, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=580, Total reward=91.77, Steps=42774, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=581, Total reward=170.51, Steps=42912, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=582, Total reward=52.6, Steps=42980, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=583, Total reward=0.02, Steps=43004, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=584, Total reward=9.45, Steps=43026, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=585, Total reward=97.48, Steps=43105, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=586, Total reward=175.54, Steps=43251, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=587, Total reward=248.83, Steps=43410, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=588, Total reward=283.89, Steps=43613, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=589, Total reward=201.57, Steps=43763, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=590, Total reward=24.81, Steps=43814, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=591, Total reward=68.56, Steps=43876, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=592, Total reward=14.56, Steps=43897, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=593, Total reward=43.75, Steps=43928, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=594, Total reward=24.07, Steps=43939, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=595, Total reward=52.54, Steps=43982, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=596, Total reward=28.12, Steps=44004, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=597, Total reward=122.22, Steps=44106, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=598, Total reward=70.85, Steps=44143, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=599, Total reward=24.11, Steps=44178, Training iteration=11
+Training> Name=main_level/agent, Worker=0, Episode=600, Total reward=208.78, Steps=44380, Training iteration=11
+Policy training> Surrogate loss=-0.0009041666053235531, KL divergence=0.00028197065694257617, Entropy=0.24133864045143127, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.02269100956618786, KL divergence=0.007943744771182537, Entropy=0.23945119976997375, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03159784525632858, KL divergence=0.016369910910725594, Entropy=0.23625564575195312, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03627534955739975, KL divergence=0.02375664934515953, Entropy=0.23630425333976746, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04025427624583244, KL divergence=0.028102584183216095, Entropy=0.23352399468421936, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04288594797253609, KL divergence=0.03224647417664528, Entropy=0.23331999778747559, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.042558278888463974, KL divergence=0.03537643328309059, Entropy=0.23487643897533417, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04359856992959976, KL divergence=0.03771370276808739, Entropy=0.23507463932037354, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04531370848417282, KL divergence=0.039198096841573715, Entropy=0.23633666336536407, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04606541618704796, KL divergence=0.04001870006322861, Entropy=0.23558345437049866, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/334_Step-44380.ckpt']
+Uploaded 3 files for checkpoint 334 in 0.59 seconds
+saved intermediate frozen graph: current/model/model_334.pb
+Best checkpoint number: 323, Last checkpoint number: 332
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'331'}
+Training> Name=main_level/agent, Worker=0, Episode=601, Total reward=310.61, Steps=44567, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=602, Total reward=152.88, Steps=44764, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=603, Total reward=0.01, Steps=44777, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=604, Total reward=162.93, Steps=44950, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=605, Total reward=160.28, Steps=45079, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=606, Total reward=134.3, Steps=45191, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=607, Total reward=75.42, Steps=45241, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=608, Total reward=169.96, Steps=45330, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=609, Total reward=54.93, Steps=45386, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=610, Total reward=335.04, Steps=45673, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=611, Total reward=96.65, Steps=45740, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=612, Total reward=167.44, Steps=45833, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=613, Total reward=81.28, Steps=45896, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=614, Total reward=254.53, Steps=46071, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=615, Total reward=40.2, Steps=46089, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=616, Total reward=47.06, Steps=46137, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=617, Total reward=156.16, Steps=46239, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=618, Total reward=79.98, Steps=46278, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=619, Total reward=101.99, Steps=46343, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=620, Total reward=84.76, Steps=46399, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=621, Total reward=85.48, Steps=46473, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=622, Total reward=169.78, Steps=46643, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=623, Total reward=15.5, Steps=46677, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=624, Total reward=110.37, Steps=46775, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=625, Total reward=236.57, Steps=46925, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=626, Total reward=267.8, Steps=47062, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=627, Total reward=76.2, Steps=47113, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=628, Total reward=194.56, Steps=47212, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=629, Total reward=201.62, Steps=47378, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=630, Total reward=49.51, Steps=47434, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=631, Total reward=145.07, Steps=47542, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=632, Total reward=106.64, Steps=47598, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=633, Total reward=76.64, Steps=47642, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=634, Total reward=217.11, Steps=47782, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=635, Total reward=118.12, Steps=47860, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=636, Total reward=36.92, Steps=47893, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=637, Total reward=162.17, Steps=48032, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=638, Total reward=141.71, Steps=48134, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=639, Total reward=17.4, Steps=48158, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=640, Total reward=75.47, Steps=48208, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=641, Total reward=80.72, Steps=48246, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=642, Total reward=35.45, Steps=48286, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=643, Total reward=18.01, Steps=48328, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=644, Total reward=99.41, Steps=48438, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=645, Total reward=55.07, Steps=48546, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=646, Total reward=81.1, Steps=48607, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=647, Total reward=172.37, Steps=48760, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=648, Total reward=61.09, Steps=48802, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=649, Total reward=82.71, Steps=48875, Training iteration=12
+Training> Name=main_level/agent, Worker=0, Episode=650, Total reward=7.54, Steps=48888, Training iteration=12
+Policy training> Surrogate loss=0.0050499229691922665, KL divergence=0.00030427949968725443, Entropy=0.24130475521087646, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03436533361673355, KL divergence=0.008089162409305573, Entropy=0.23766450583934784, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.028659097850322723, KL divergence=0.017840474843978882, Entropy=0.2334510087966919, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.037155233323574066, KL divergence=0.02613135613501072, Entropy=0.23138754069805145, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03700341284275055, KL divergence=0.03172917291522026, Entropy=0.23468604683876038, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04744028300046921, KL divergence=0.03513065725564957, Entropy=0.23287275433540344, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.0418403297662735, KL divergence=0.03976718336343765, Entropy=0.23583294451236725, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04897192865610123, KL divergence=0.04097648710012436, Entropy=0.2353394776582718, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05523441731929779, KL divergence=0.043435826897621155, Entropy=0.2355993390083313, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03848493844270706, KL divergence=0.04478151723742485, Entropy=0.23554939031600952, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/335_Step-48888.ckpt']
+Uploaded 3 files for checkpoint 335 in 0.49 seconds
+saved intermediate frozen graph: current/model/model_335.pb
+Best checkpoint number: 323, Last checkpoint number: 333
+Copying the frozen checkpoint from ./frozen_models/agent/model_323.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'332'}
+Training> Name=main_level/agent, Worker=0, Episode=651, Total reward=118.12, Steps=48976, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=652, Total reward=93.19, Steps=49031, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=653, Total reward=93.8, Steps=49088, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=654, Total reward=80.24, Steps=49155, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=655, Total reward=177.52, Steps=49293, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=656, Total reward=113.18, Steps=49381, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=657, Total reward=133.46, Steps=49471, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=658, Total reward=55.34, Steps=49513, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=659, Total reward=86.27, Steps=49601, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=660, Total reward=199.87, Steps=49777, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=661, Total reward=75.87, Steps=49818, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=662, Total reward=40.93, Steps=49848, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=663, Total reward=57.57, Steps=49937, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=664, Total reward=0.02, Steps=49954, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=665, Total reward=36.0, Steps=50017, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=666, Total reward=156.11, Steps=50139, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=667, Total reward=70.21, Steps=50193, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=668, Total reward=155.06, Steps=50301, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=669, Total reward=30.17, Steps=50319, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=670, Total reward=160.43, Steps=50436, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=671, Total reward=133.84, Steps=50514, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=672, Total reward=73.48, Steps=50553, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=673, Total reward=234.59, Steps=50719, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=674, Total reward=61.43, Steps=50764, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=675, Total reward=284.6, Steps=51082, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=676, Total reward=62.21, Steps=51147, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=677, Total reward=223.3, Steps=51349, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=678, Total reward=65.18, Steps=51385, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=679, Total reward=90.59, Steps=51494, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=680, Total reward=186.25, Steps=51652, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=681, Total reward=116.28, Steps=51771, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=682, Total reward=247.41, Steps=51948, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=683, Total reward=10.74, Steps=52001, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=684, Total reward=0.03, Steps=52030, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=685, Total reward=190.73, Steps=52185, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=686, Total reward=87.89, Steps=52244, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=687, Total reward=162.46, Steps=52364, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=688, Total reward=179.45, Steps=52458, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=689, Total reward=66.05, Steps=52528, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=690, Total reward=20.63, Steps=52586, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=691, Total reward=64.17, Steps=52621, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=692, Total reward=162.64, Steps=52714, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=693, Total reward=190.11, Steps=52890, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=694, Total reward=73.49, Steps=52934, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=695, Total reward=64.47, Steps=52983, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=696, Total reward=49.31, Steps=53048, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=697, Total reward=153.84, Steps=53166, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=698, Total reward=89.14, Steps=53230, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=699, Total reward=241.39, Steps=53457, Training iteration=13
+Training> Name=main_level/agent, Worker=0, Episode=700, Total reward=86.09, Steps=53518, Training iteration=13
+Policy training> Surrogate loss=0.0002367513079661876, KL divergence=0.0006442280719056726, Entropy=0.2441016584634781, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.024630356580018997, KL divergence=0.009693131782114506, Entropy=0.24123992025852203, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.032057974487543106, KL divergence=0.017341449856758118, Entropy=0.2370443344116211, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03849778324365616, KL divergence=0.023198844864964485, Entropy=0.2350606620311737, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03937428072094917, KL divergence=0.027717286720871925, Entropy=0.23333740234375, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.043101634830236435, KL divergence=0.03129173815250397, Entropy=0.2338489443063736, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04381753131747246, KL divergence=0.03376121073961258, Entropy=0.23409025371074677, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04409797489643097, KL divergence=0.03568790853023529, Entropy=0.23356516659259796, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04795202985405922, KL divergence=0.037209950387477875, Entropy=0.23379257321357727, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04740513861179352, KL divergence=0.03857199847698212, Entropy=0.23445653915405273, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/336_Step-53518.ckpt']
+Uploaded 3 files for checkpoint 336 in 0.56 seconds
+saved intermediate frozen graph: current/model/model_336.pb
+Best checkpoint number: 334, Last checkpoint number: 334
+Copying the frozen checkpoint from ./frozen_models/agent/model_334.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'333'}
+Training> Name=main_level/agent, Worker=0, Episode=701, Total reward=73.81, Steps=53568, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=702, Total reward=39.36, Steps=53612, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=703, Total reward=23.73, Steps=53661, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=704, Total reward=220.65, Steps=53820, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=705, Total reward=189.31, Steps=53975, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=706, Total reward=103.87, Steps=54037, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=707, Total reward=31.3, Steps=54083, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=708, Total reward=61.17, Steps=54128, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=709, Total reward=67.06, Steps=54189, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=710, Total reward=88.72, Steps=54262, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=711, Total reward=69.99, Steps=54304, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=712, Total reward=62.35, Steps=54362, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=713, Total reward=59.76, Steps=54405, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=714, Total reward=399.53, Steps=54671, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=715, Total reward=54.43, Steps=54722, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=716, Total reward=136.41, Steps=54847, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=717, Total reward=23.86, Steps=54868, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=718, Total reward=42.62, Steps=54924, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=719, Total reward=238.52, Steps=55135, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=720, Total reward=63.84, Steps=55208, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=721, Total reward=304.25, Steps=55472, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=722, Total reward=143.25, Steps=55600, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=723, Total reward=0.02, Steps=55616, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=724, Total reward=104.01, Steps=55697, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=725, Total reward=12.16, Steps=55722, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=726, Total reward=226.54, Steps=55858, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=727, Total reward=128.41, Steps=55957, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=728, Total reward=90.39, Steps=56026, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=729, Total reward=258.47, Steps=56212, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=730, Total reward=121.36, Steps=56297, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=731, Total reward=108.32, Steps=56365, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=732, Total reward=12.47, Steps=56377, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=733, Total reward=85.28, Steps=56434, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=734, Total reward=296.0, Steps=56689, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=735, Total reward=181.08, Steps=56860, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=736, Total reward=129.86, Steps=56949, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=737, Total reward=31.41, Steps=57000, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=738, Total reward=71.62, Steps=57053, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=739, Total reward=96.44, Steps=57160, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=740, Total reward=111.03, Steps=57318, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=741, Total reward=66.14, Steps=57365, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=742, Total reward=54.95, Steps=57425, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=743, Total reward=9.88, Steps=57490, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=744, Total reward=17.88, Steps=57522, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=745, Total reward=76.45, Steps=57604, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=746, Total reward=133.31, Steps=57722, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=747, Total reward=170.62, Steps=57832, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=748, Total reward=131.38, Steps=57955, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=749, Total reward=295.32, Steps=58193, Training iteration=14
+Training> Name=main_level/agent, Worker=0, Episode=750, Total reward=130.09, Steps=58302, Training iteration=14
+Policy training> Surrogate loss=-0.002255730563774705, KL divergence=0.0006370211485773325, Entropy=0.24196474254131317, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.025240935385227203, KL divergence=0.009699850343167782, Entropy=0.23584437370300293, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.032700635492801666, KL divergence=0.019853712990880013, Entropy=0.23496998846530914, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03591366112232208, KL divergence=0.026912402361631393, Entropy=0.2329612374305725, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04483024403452873, KL divergence=0.03164282068610191, Entropy=0.2313973605632782, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04609658196568489, KL divergence=0.03480366989970207, Entropy=0.22913391888141632, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04609449580311775, KL divergence=0.03703748807311058, Entropy=0.22929099202156067, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.047814540565013885, KL divergence=0.039416566491127014, Entropy=0.2312505543231964, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.047121915966272354, KL divergence=0.04185377061367035, Entropy=0.23303371667861938, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.0517306849360466, KL divergence=0.04347728565335274, Entropy=0.23203502595424652, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/337_Step-58302.ckpt']
+Uploaded 3 files for checkpoint 337 in 0.53 seconds
+saved intermediate frozen graph: current/model/model_337.pb
+Best checkpoint number: 334, Last checkpoint number: 335
+Copying the frozen checkpoint from ./frozen_models/agent/model_334.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'335'}
+Training> Name=main_level/agent, Worker=0, Episode=751, Total reward=127.66, Steps=58370, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=752, Total reward=118.53, Steps=58439, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=753, Total reward=120.36, Steps=58532, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=754, Total reward=63.69, Steps=58561, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=755, Total reward=29.64, Steps=58598, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=756, Total reward=32.52, Steps=58627, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=757, Total reward=79.83, Steps=58682, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=758, Total reward=97.3, Steps=58794, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=759, Total reward=118.01, Steps=58894, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=760, Total reward=79.32, Steps=58950, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=761, Total reward=100.47, Steps=59020, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=762, Total reward=39.75, Steps=59060, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=763, Total reward=26.64, Steps=59102, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=764, Total reward=157.96, Steps=59249, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=765, Total reward=87.99, Steps=59343, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=766, Total reward=213.64, Steps=59490, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=767, Total reward=107.3, Steps=59607, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=768, Total reward=151.46, Steps=59718, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=769, Total reward=131.68, Steps=59809, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=770, Total reward=20.12, Steps=59858, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=771, Total reward=132.03, Steps=59924, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=772, Total reward=119.94, Steps=59993, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=773, Total reward=181.74, Steps=60176, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=774, Total reward=150.08, Steps=60282, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=775, Total reward=31.3, Steps=60300, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=776, Total reward=16.5, Steps=60321, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=777, Total reward=115.45, Steps=60416, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=778, Total reward=166.22, Steps=60564, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=779, Total reward=74.99, Steps=60646, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=780, Total reward=96.28, Steps=60715, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=781, Total reward=310.46, Steps=60936, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=782, Total reward=12.42, Steps=60953, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=783, Total reward=156.47, Steps=61112, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=784, Total reward=202.78, Steps=61258, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=785, Total reward=133.01, Steps=61375, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=786, Total reward=398.1, Steps=61659, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=787, Total reward=196.28, Steps=61780, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=788, Total reward=152.75, Steps=61858, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=789, Total reward=94.95, Steps=61934, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=790, Total reward=118.36, Steps=62057, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=791, Total reward=92.96, Steps=62127, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=792, Total reward=103.32, Steps=62195, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=793, Total reward=25.79, Steps=62206, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=794, Total reward=107.43, Steps=62328, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=795, Total reward=117.16, Steps=62437, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=796, Total reward=144.87, Steps=62551, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=797, Total reward=81.86, Steps=62597, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=798, Total reward=62.91, Steps=62635, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=799, Total reward=75.76, Steps=62709, Training iteration=15
+Training> Name=main_level/agent, Worker=0, Episode=800, Total reward=88.87, Steps=62765, Training iteration=15
+Policy training> Surrogate loss=-0.0077012451365590096, KL divergence=0.0003664073010440916, Entropy=0.24501866102218628, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.011297570541501045, KL divergence=0.00831125769764185, Entropy=0.24018634855747223, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.034367699176073074, KL divergence=0.017886625602841377, Entropy=0.2357327789068222, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.041642576456069946, KL divergence=0.025224599987268448, Entropy=0.2354174107313156, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.040113624185323715, KL divergence=0.03027568943798542, Entropy=0.2316153347492218, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05110694095492363, KL divergence=0.03397081792354584, Entropy=0.23377472162246704, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04510395601391792, KL divergence=0.03756164386868477, Entropy=0.23800790309906006, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04856417700648308, KL divergence=0.038100309669971466, Entropy=0.23203393816947937, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05802997946739197, KL divergence=0.03893303871154785, Entropy=0.23456938564777374, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.05107764154672623, KL divergence=0.041533585637807846, Entropy=0.23335222899913788, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/338_Step-62765.ckpt']
+Uploaded 3 files for checkpoint 338 in 0.55 seconds
+saved intermediate frozen graph: current/model/model_338.pb
+Best checkpoint number: 334, Last checkpoint number: 336
+Copying the frozen checkpoint from ./frozen_models/agent/model_334.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'323'}
+Training> Name=main_level/agent, Worker=0, Episode=801, Total reward=295.26, Steps=62965, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=802, Total reward=47.66, Steps=63007, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=803, Total reward=14.53, Steps=63040, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=804, Total reward=87.04, Steps=63127, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=805, Total reward=95.59, Steps=63220, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=806, Total reward=165.83, Steps=63345, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=807, Total reward=78.62, Steps=63399, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=808, Total reward=187.41, Steps=63499, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=809, Total reward=42.13, Steps=63537, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=810, Total reward=296.99, Steps=63776, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=811, Total reward=232.98, Steps=63967, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=812, Total reward=17.6, Steps=63979, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=813, Total reward=94.77, Steps=64031, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=814, Total reward=326.83, Steps=64329, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=815, Total reward=232.99, Steps=64449, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=816, Total reward=72.57, Steps=64516, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=817, Total reward=129.52, Steps=64598, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=818, Total reward=98.07, Steps=64672, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=819, Total reward=120.34, Steps=64797, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=820, Total reward=74.53, Steps=64862, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=821, Total reward=75.69, Steps=64899, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=822, Total reward=194.4, Steps=65060, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=823, Total reward=16.52, Steps=65107, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=824, Total reward=98.94, Steps=65219, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=825, Total reward=6.87, Steps=65257, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=826, Total reward=169.23, Steps=65376, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=827, Total reward=131.22, Steps=65490, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=828, Total reward=132.5, Steps=65559, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=829, Total reward=157.85, Steps=65685, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=830, Total reward=39.11, Steps=65717, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=831, Total reward=16.61, Steps=65752, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=832, Total reward=48.33, Steps=65776, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=833, Total reward=91.69, Steps=65836, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=834, Total reward=186.27, Steps=66032, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=835, Total reward=71.71, Steps=66082, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=836, Total reward=168.3, Steps=66224, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=837, Total reward=97.22, Steps=66309, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=838, Total reward=228.97, Steps=66495, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=839, Total reward=175.57, Steps=66684, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=840, Total reward=75.31, Steps=66766, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=841, Total reward=95.62, Steps=66848, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=842, Total reward=132.75, Steps=66983, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=843, Total reward=0.02, Steps=67000, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=844, Total reward=11.3, Steps=67031, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=845, Total reward=218.92, Steps=67168, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=846, Total reward=175.72, Steps=67282, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=847, Total reward=175.84, Steps=67404, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=848, Total reward=177.11, Steps=67516, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=849, Total reward=302.68, Steps=67794, Training iteration=16
+Training> Name=main_level/agent, Worker=0, Episode=850, Total reward=101.09, Steps=67880, Training iteration=16
+Policy training> Surrogate loss=0.003173944540321827, KL divergence=0.0005321108619682491, Entropy=0.2451918125152588, training epoch=0, learning_rate=2e-05
+Policy training> Surrogate loss=-0.027587393298745155, KL divergence=0.00920042023062706, Entropy=0.24790483713150024, training epoch=1, learning_rate=2e-05
+Policy training> Surrogate loss=-0.025459446012973785, KL divergence=0.018543539568781853, Entropy=0.2393224537372589, training epoch=2, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03842034563422203, KL divergence=0.024826491251587868, Entropy=0.24032126367092133, training epoch=3, learning_rate=2e-05
+Policy training> Surrogate loss=-0.041201211512088776, KL divergence=0.029484430328011513, Entropy=0.23777610063552856, training epoch=4, learning_rate=2e-05
+Policy training> Surrogate loss=-0.052277445793151855, KL divergence=0.03217628225684166, Entropy=0.2394905686378479, training epoch=5, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03892560303211212, KL divergence=0.03390897065401077, Entropy=0.24076789617538452, training epoch=6, learning_rate=2e-05
+Policy training> Surrogate loss=-0.03228983283042908, KL divergence=0.03556104749441147, Entropy=0.23925086855888367, training epoch=7, learning_rate=2e-05
+Policy training> Surrogate loss=-0.04423931613564491, KL divergence=0.03773602843284607, Entropy=0.2385873794555664, training epoch=8, learning_rate=2e-05
+Policy training> Surrogate loss=-0.050419196486473083, KL divergence=0.03848065808415413, Entropy=0.2390087991952896, training epoch=9, learning_rate=2e-05
+Checkpoint> Saving in path=['./checkpoint/339_Step-67880.ckpt']
+Uploaded 3 files for checkpoint 339 in 0.59 seconds
+saved intermediate frozen graph: current/model/model_339.pb
+Best checkpoint number: 337, Last checkpoint number: 337
+Copying the frozen checkpoint from ./frozen_models/agent/model_337.pb to /opt/ml/model/agent/model.pb.
+Deleting the frozen models in s3 for the iterations: {'336'}
+Training> Name=main_level/agent, Worker=0, Episode=851, Total reward=119.29, Steps=67943, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=852, Total reward=66.38, Steps=67982, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=853, Total reward=44.94, Steps=68021, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=854, Total reward=25.19, Steps=68033, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=855, Total reward=196.65, Steps=68203, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=856, Total reward=25.63, Steps=68233, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=857, Total reward=176.85, Steps=68337, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=858, Total reward=242.2, Steps=68513, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=859, Total reward=101.56, Steps=68613, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=860, Total reward=85.39, Steps=68665, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=861, Total reward=83.01, Steps=68712, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=862, Total reward=46.56, Steps=68781, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=863, Total reward=0.03, Steps=68808, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=864, Total reward=180.6, Steps=68944, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=865, Total reward=408.28, Steps=69243, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=866, Total reward=99.67, Steps=69320, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=867, Total reward=176.44, Steps=69437, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=868, Total reward=93.1, Steps=69475, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=869, Total reward=211.92, Steps=69654, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=870, Total reward=258.51, Steps=69863, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=871, Total reward=151.23, Steps=69947, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=872, Total reward=94.59, Steps=70003, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=873, Total reward=169.39, Steps=70144, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=874, Total reward=184.77, Steps=70302, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=875, Total reward=401.59, Steps=70586, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=876, Total reward=38.13, Steps=70619, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=877, Total reward=177.61, Steps=70746, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=878, Total reward=148.24, Steps=70886, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=879, Total reward=89.81, Steps=70964, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=880, Total reward=86.53, Steps=71059, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=881, Total reward=55.7, Steps=71170, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=882, Total reward=32.77, Steps=71203, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=883, Total reward=3.72, Steps=71223, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=884, Total reward=185.41, Steps=71373, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=885, Total reward=51.06, Steps=71465, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=886, Total reward=153.66, Steps=71583, Training iteration=17
+Training> Name=main_level/agent, Worker=0, Episode=887, Total reward=325.96, Steps=71800, Training iteration=17
